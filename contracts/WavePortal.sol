@@ -2,10 +2,22 @@
 
 pragma solidity ^0.8.4;
 
-import "../node_modules/hardhat/console.sol";
+import "hardhat/console.sol";
 
 contract WavePortal {
+    uint256 totalWaves;
+
     constructor() {
         console.log("Hello smart contract world, I am smart");
+    }
+
+    function wave() public {
+        totalWaves += 1;
+        console.log("%s has waved at you!", msg.sender);
+    }
+
+    function getTotalWaves() public view returns (uint256) {
+        console.log("We have %s total waves", totalWaves);
+        return totalWaves;
     }
 }
